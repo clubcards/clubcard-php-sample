@@ -1,9 +1,10 @@
 <?php
-ini_set('display_errors', 1);
 require '../vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
 $dotenv->safeLoad();
+
+ini_set('display_errors', $_ENV['PHP_ENV'] == "production" ? 0 : 1);
 
 $nft_connected = false;
 if (\Delight\Cookie\Cookie::exists('nft_connected')) {
