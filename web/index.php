@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 require '../vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
-$dotenv->load();
+$dotenv->safeLoad();
 
 $nft_connected = false;
 if (\Delight\Cookie\Cookie::exists('nft_connected')) {
